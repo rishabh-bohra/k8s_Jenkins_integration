@@ -1,0 +1,25 @@
+apiVersion: v1 
+kind: Config
+clusters:
+- cluster:
+    certificate-authority: /root/ca.crt #(pass ca.cert location here)
+    server: https://192.168.99.100:8443  #(pass your k8s cluster url here)
+  name: riscluster #(give name to this cluster)
+
+contexts:
+- context:
+    cluster: riscluster
+    user: rishabh
+  name: riscontext
+
+
+current-context: riscontext  #(this is to tell that currenttly use this context or this cluster to run kubectl command )
+
+
+preferences: {}
+users:
+- name: rishabh
+  user:
+    client-certificate: /root/client.crt  #(pass client.crt of k8s, path here)
+    client-key: /root/client.key    #(pass client.key of k8s, path here)
+ 

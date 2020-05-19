@@ -1,0 +1,12 @@
+- hosts: all
+  tasks: 
+  - name: download kubectl file 
+    get_url:
+     url: https://storage.googleapis.com/kubernetes-release/release/v1.18.2/bin/linux/amd64/kubectl
+     dest: /usr/bin/kubectl
+     mode: '755'
+
+  - name: copy config file to vm where we want to run kubectl
+    copy:
+     src: ./config
+     dest: /root/.kube/config
