@@ -1,2 +1,2 @@
 # kubectl_linux_setup
-used to set kubectl command inside linux os 
+used to setup kubectl command inside linux os 
